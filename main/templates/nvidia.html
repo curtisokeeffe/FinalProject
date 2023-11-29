@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NVIDIA Stock Information</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">StockInfo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Microsoft">Microsoft</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Amazon">Amazon</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/DrHorton">Dr Horton</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/MercadoLibre">Mercado Libre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Nvidia">Nvidia</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>NVIDIA Stock Information</h1>
+
+    <!-- Time Range Links -->
+    <div>
+        <a href="/NVIDIA?range=1y" class="btn btn-primary">1 Year</a>
+        <a href="/NVIDIA?range=1m" class="btn btn-secondary">1 Month</a>
+        <a href="/NVIDIA?range=1w" class="btn btn-success">1 Week</a>
+        <a href="/NVIDIA?range=1d" class="btn btn-info">1 Day</a>
+    </div>
+
+    <!-- Canvas for Chart.js -->
+    <canvas id="stockChart"></canvas>
+
+    <script>
+        var ctx = document.getElementById('stockChart').getContext('2d');
+        var stockChart = new Chart(ctx, {
+            type: 'line',  // Type of chart
+            data: {
+                labels: {{ labels|tojson|safe }},  // X-axis labels
+                datasets: [{
+                    label: 'Stock Price',
+                    data: {{ values|tojson|safe }},  // Y-axis data
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+    <canvas id="stockChart"></canvas>
+
+    <script>
+        var ctx = document.getElementById('stockChart').getContext('2d');
+        var stockChart = new Chart(ctx, {
+            type: 'line',  // Type of chart
+            data: {
+                labels: {{ labels|tojson|safe }},  // X-axis labels
+                datasets: [{
+                    label: 'Stock Price',
+                    data: {{ values|tojson|safe }},  // Y-axis data
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
