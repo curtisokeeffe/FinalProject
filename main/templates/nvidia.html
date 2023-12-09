@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NVIDIA Stock Information</title>
+    <title>Nvidia Stock Information</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: rgba(173, 216, 230, 0.5); /* Light blue with semi-transparency */
+            color: #333; /* Dark text color for readability */
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent navbar */
+        }
+        h1 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,49 +49,34 @@
             </ul>
         </div>
     </nav>
-    <h1>NVIDIA Stock Information</h1>
+    <h1>Nvidia Stock Information</h1>
 
     <!-- Time Range Links -->
     <div>
-        <a href="/NVIDIA?range=1y" class="btn btn-primary">1 Year</a>
-        <a href="/NVIDIA?range=1m" class="btn btn-secondary">1 Month</a>
-        <a href="/NVIDIA?range=1w" class="btn btn-success">1 Week</a>
-        <a href="/NVIDIA?range=1d" class="btn btn-info">1 Day</a>
+        <a href="/Nvidia?range=1y" class="btn btn-primary">1 Year</a>
+        <a href="/Nvidia?range=1m" class="btn btn-secondary">1 Month</a>
+        <a href="/Nvidia?range=1w" class="btn btn-success">1 Week</a>
+        <a href="/Nvidia?range=1d" class="btn btn-info">1 Day</a>
     </div>
 
     <!-- Canvas for Chart.js -->
-    <canvas id="stockChart"></canvas>
+    <canvas id="nvidiaStockChart"></canvas>
+
+    <div class="info-dashboard mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Current Price: {{ current_price }}</h3>
+            </div>
+            <div class="col-md-3">
+                <h3>Market Cap: {{ market_cap }}</h3>
+            </div>
+        </div>
+    </div>
+
 
     <script>
-        var ctx = document.getElementById('stockChart').getContext('2d');
-        var stockChart = new Chart(ctx, {
-            type: 'line',  // Type of chart
-            data: {
-                labels: {{ labels|tojson|safe }},  // X-axis labels
-                datasets: [{
-                    label: 'Stock Price',
-                    data: {{ values|tojson|safe }},  // Y-axis data
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
-    <canvas id="stockChart"></canvas>
-
-    <script>
-        var ctx = document.getElementById('stockChart').getContext('2d');
-        var stockChart = new Chart(ctx, {
+        var ctx = document.getElementById('nvidiaStockChart').getContext('2d');
+        var nvidiaStockChart = new Chart(ctx, {
             type: 'line',  // Type of chart
             data: {
                 labels: {{ labels|tojson|safe }},  // X-axis labels

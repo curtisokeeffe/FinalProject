@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dr Horton Stock Information</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Information Dashboard</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             background-color: rgba(173, 216, 230, 0.5); /* Light blue with semi-transparency */
@@ -21,6 +22,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">StockInfo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,53 +51,11 @@
             </ul>
         </div>
     </nav>
-    <h1>Dr Horton Stock Information</h1>
 
-    <!-- Time Range Links -->
-    <div>
-        <a href="/DrHorton?range=1y" class="btn btn-primary">1 Year</a>
-        <a href="/DrHorton?range=1m" class="btn btn-secondary">1 Month</a>
-        <a href="/DrHorton?range=1w" class="btn btn-success">1 Week</a>
-        <a href="/DrHorton?range=1d" class="btn btn-info">1 Day</a>
+    <h1>Maximum requests reached or an error occured</h1>
+    <div style="text-align: center;">
+        <p>This usually means the maximum number of requests have been sent to the API, and I am using the free version - please try again later.</p>
     </div>
-
-    <!-- Canvas for Chart.js -->
-    <canvas id="drHortonStockChart"></canvas>
-
-    <div class="info-dashboard mt-4">
-        <div class="row">
-            <div class="col-md-3">
-                <h3>Current Price: {{ current_price }}</h3>
-            </div>
-            <div class="col-md-3">
-                <h3>Market Cap: {{ market_cap }}</h3>
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        var ctx = document.getElementById('drHortonStockChart').getContext('2d');
-        var drHortonStockChart = new Chart(ctx, {
-            type: 'line',  // Type of chart
-            data: {
-                labels: {{ labels|tojson|safe }},  // X-axis labels
-                datasets: [{
-                    label: 'Stock Price',
-                    data: {{ values|tojson|safe }},  // Y-axis data
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                }
-            }
-        });
-    </script>
+    
 </body>
 </html>

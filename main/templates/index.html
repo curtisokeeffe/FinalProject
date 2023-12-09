@@ -18,6 +18,15 @@
             margin-top: 20px;
             text-align: center;
         }
+        /* Additional styles for the search form */
+        .search-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .search-box {
+            border-radius: 20px;
+            width: 250px;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +63,15 @@
     <!-- Main Content -->
     <div class="container">
         <h1>Welcome to the Stock Information Dashboard</h1>
+
+        <!-- Search Form -->
+        <div class="search-form">
+            <form action="/search" method="get" class="form-inline justify-content-center">
+                <input type="text" name="stock_symbol" class="form-control search-box" placeholder="Enter Stock Symbol">
+                <button type="submit" class="btn btn-primary ml-2">Search</button>
+            </form>
+        </div>
+
         <div class="container">
             <p class="lead">Get the latest updates on stock market trends with our simple and efficient dashboard. Access real-time information on top companies like Microsoft, Nvidia, Amazon, D.R. Horton, and MercadoLibre. Whether you're an experienced investor or new to the stock market, our platform offers a quick and easy way to check stock performances, market values, and essential financial metrics. Stay informed and make smarter investment decisions with all the necessary data just a click away.</p>
             <p class="text-muted">Start exploring the stock market with our user-friendly dashboard today!</p>
@@ -65,4 +83,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-  
