@@ -1,4 +1,5 @@
-# Project Name
+# Final Project Overview and reflection
+## Project Name
 
 StockInfo
 
@@ -44,7 +45,13 @@ The structure of **StockInfo** is outlined as follows:
         - `Templates` (HTML files)
             - `index.html` (Homepage)
             - `search_result.html` (Search result page)
-            - [Other HTML files for individual stocks]
+            - `error.html` (error page)
+            - `mercadolibre.html` (Mercado Libre stock page)
+            - `amazon.html` (Amazon stock page)
+            - `nvidia.html` (Nvidia stock page)
+            - `microsoft.html` (Microsoft stock page)
+            - `drhorton.html` (DrHorton stock page)
+  
 
 ## 5. Collaboration Information
 No collaboration.
@@ -70,9 +77,11 @@ For the formatting and presentation of the site, i wanted to make something simp
 
 For testing the project, i would log data at different stages through out the process, to identify where issues occured. for example, i would log the quantity of data when it was fetched, transformed and passed to different routes and edited for the different ranges. this allowed me to see if the data quantity issue was due to fetching, manipulating or passing allowing me to fix it. This allowed me to catch errors that even ChatGPT and Copilot were unable to identify.
 
+Additionally, i designated my DrHorton.html page to show the native error message rather then redirecting to error.html. which is where i would want the user to be sent, so i could better identify the error that was occuring as my error page shows a general message, and often the error was just maximum API requests rather then an actual issue in my code. Looking forward, i would have created a seperate html page just for this rather then using DrHorton as this casued some issues that ony DrHortons page would show, rather then an unused testing page.
+
 I was happy with the functionality as i initially decided to only preset 5 stocks as well as have a fixed time range however once i reached this goal with plenty of time to spare, i started adding additional features such as the time range feature and the search feature as i felt this made the site a lot more practical and useful.
 
-The main change i would make if i where to continue working on this project would to deploy it so it can be used by everyone. i tried this early on, but struggled to get it to run and figured i would continue working on the functionallity before deploying. 
+The main change i would make if i were to continue working on this project would to deploy it so it can be used by everyone. i tried this early on, but struggled to get it to run and figured i would continue working on the functionallity before deploying. 
 
 
 ### Learning Perspective
@@ -83,4 +92,4 @@ ChatGPT assisted greatly in the inital structuring and set up of my project, as 
 
 Looking forward, i am keen to use the skills i have learnt whenever possible. this may be in the form of a personal project, or in internships as i am looking more in the tech field. Additionally, this project allowed me to give an example of my programming skills, which is beneficial for future employment oportunities. Furthermore, having an understanding of these concepts allows us to understand how the internet works as a whole, and how the sites we use and interact with everyday came to be.
 
-If i where to start this project again, i would have planned to add more features at the start, rather then integrating them alnog the way. this would allow me to build the foundation around these features so i dont need to change as much later on.
+If i were to start this project again, i would have planned to add more features at the start, rather then integrating them alnog the way. this would allow me to build the foundation around these features so i dont need to change as much later on.
